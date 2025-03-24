@@ -239,7 +239,7 @@ function App() {
                 </select>
               </div>
               <div>
-                <label className="block mb-2">Data</label>
+                <label className="block mb-2">Escolha o dia</label>
                 <input 
                   type="date" 
                   name="data"
