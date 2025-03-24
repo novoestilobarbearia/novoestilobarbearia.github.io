@@ -14,7 +14,7 @@ function App() {
   });
 
   const horariosDisponiveis = [
-    '09:00','09:30', '10:00','10:30', '11:00','11:30', '13:00', '13:30', '14:00', '14:30', '15:30', '16:30', '17:00','17:00','17:30','18:00','18:30','19:00',
+    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '13:00', '13:30', '14:00', '14:30', '15:30', '16:30', '17:00', '17:00', '17:30', '18:00', '18:30', '19:00',
   ];
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
         .select('*');
 
       if (error) throw error;
-      
+
       setServices(data);
       if (data.length > 0) {
         setFormData(prev => ({ ...prev, servico: data[0].id }));
@@ -46,7 +46,7 @@ function App() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       // Save appointment to Supabase
       const { error } = await supabase
@@ -129,10 +129,10 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Toaster position="top-right" />
-      
+
       {/* Hero Section */}
       <header className="relative h-screen">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80")',
@@ -140,15 +140,21 @@ function App() {
         >
           <div className="absolute inset-0 bg-black/60" />
         </div>
-        
-        <nav className="relative z-10 container mx-auto px-6 py-6">
+
+        <nav className="fixed z-10 w-full px-6 py-6">
           <div className="flex items-center justify-between">
+            {/* Nome da barbearia à esquerda */}
             <div className="flex items-center space-x-2">
               <Scissors className="h-8 w-8 text-amber-500" />
               <span className="text-2xl font-bold">Barbearia Novo Estilo</span>
             </div>
+
+            {/* Espaço vazio no centro */}
+            <div className="flex-1"></div>
+
+            {/* Links de navegação à direita */}
             <div className="hidden md:flex space-x-8">
-              <a href="#inicio" className="hover:text-amber-500 transition">Início</a>
+              <a href="#" className="hover:text-amber-500 transition">Início</a>
               <a href="#servicos" className="hover:text-amber-500 transition">Serviços</a>
               <a href="#agendar" className="hover:text-amber-500 transition">Agendar</a>
               <a href="#contatos" className="hover:text-amber-500 transition">Contato</a>
@@ -156,12 +162,13 @@ function App() {
           </div>
         </nav>
 
+
         <div className="relative z-10 container mx-auto px-6 h-[calc(100vh-88px)] flex items-center">
           <div className="max-w-2xl">
             <h1 className="text-6xl font-bold mb-6">Estilo Premium para o Homem Moderno</h1>
             <p className="text-xl mb-8 text-gray-300">Experimente a arte da barbearia novo estilo com dna de luxo moderno</p>
-            <a 
-              href="#agendar" 
+            <a
+              href="#agendar"
               className="bg-amber-500 text-black px-8 py-4 rounded-md font-semibold hover:bg-amber-600 transition"
             >
               Agende seu Horário
@@ -198,8 +205,8 @@ function App() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block mb-2">Nome</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="nome"
                   value={formData.nome}
                   onChange={handleChange}
@@ -210,8 +217,8 @@ function App() {
               </div>
               <div>
                 <label className="block mb-2">Telefone</label>
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   name="telefone"
                   value={formData.telefone}
                   onChange={handleChange}
@@ -224,7 +231,7 @@ function App() {
               </div>
               <div>
                 <label className="block mb-2">Serviço</label>
-                <select 
+                <select
                   name="servico"
                   value={formData.servico}
                   onChange={handleChange}
@@ -239,9 +246,9 @@ function App() {
                 </select>
               </div>
               <div>
-                <label className="block mb-2">Escolha o dia</label>
-                <input 
-                  type="date" 
+                <label className="block mb-2">Escolha o Dia</label>
+                <input
+                  type="date"
                   name="data"
                   value={formData.data}
                   onChange={handleChange}
@@ -251,7 +258,7 @@ function App() {
               </div>
               <div>
                 <label className="block mb-2">Horário</label>
-                <select 
+                <select
                   name="horario"
                   value={formData.horario}
                   onChange={handleChange}
@@ -264,8 +271,8 @@ function App() {
                   ))}
                 </select>
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="w-full bg-amber-500 text-black py-3 rounded-md font-semibold hover:bg-amber-600 transition"
               >
                 Confirmar Agendamento
@@ -296,7 +303,7 @@ function App() {
               <p className="text-gray-400">Seg-Sáb: 9h - 20h<br /></p>
             </div>
           </div>
-          
+
           {/* Payment Methods */}
           <div className="mt-12 text-center">
             <h3 className="text-xl font-bold mb-6">Formas de Pagamento</h3>
