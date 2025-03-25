@@ -97,11 +97,10 @@ function App() {
       // Envia mensagem para a barbearia
       window.open(`https://wa.me/5527997276019?text=${mensagemBarbearia}`, '_blank');
 
-      // Aguarda 1 segundo e envia mensagem para o cliente
       setTimeout(() => {
-        window.open(`https://wa.me/5527997276019${formData.telefone}?text=${mensagemCliente}`, '_blank');
+        window.open(`https://wa.me/${formData.telefone}?text=${mensagemCliente}`, '_blank');
       }, 1000);
-
+      
       toast.success('Agendamento realizado com sucesso!');
 
       // Limpa o formulário

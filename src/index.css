@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Smartphones (iPhone, Android) */
+@media screen and (max-width: 480px) {
+    .container {
+        min-height: 500px;  /* Ajustável conforme necessário */
+        max-height: 800px;
+    }
+}
+
+/* Tablets (iPads, dispositivos médios) */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .container {
+        min-height: 600px;
+        max-height: 1200px;
+    }
+}
+
+/* PCs (Laptops, Desktops) */
+@media screen and (min-width: 1025px) {
+    .container {
+        min-height: 800px;
+        max-height: 100vh; /* Para ocupar toda a tela */
+    }
+}
+    
