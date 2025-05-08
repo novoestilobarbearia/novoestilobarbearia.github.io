@@ -1,7 +1,6 @@
 const express = require('express');
 const { google } = require('googleapis');
 const nodemailer = require('nodemailer');
-const twilio = require('twilio');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -42,10 +41,10 @@ Novo agendamento:
 `;
 
   try {
-    // TOKEN DE ACESSO
+    // Obter access token
     const accessToken = await oAuth2Client.getAccessToken();
 
-    // Configuração do Nodemailer com OAuth2
+    // Configurar transporte
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -58,20 +57,12 @@ Novo agendamento:
       },
     });
 
-    // Enviar e-mail
+    // Enviar email
     await transporter.sendMail({
       from: `"Barbearia Novo Estilo" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // você pode trocar por outro destinatário se quiser
+      to: process.env.EMAIL_USER,
       subject: 'Novo Agendamento',
       text: message,
-    });
-
-    // Enviar WhatsApp com Twilio
-    const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
-    await client.messages.create({
-      body: message,
-      from: process.env.TWILIO_FROM,
-      to: process.env.TWILIO_TO,
     });
 
     res.status(200).json({ success: true });
