@@ -31,32 +31,43 @@ const Booking: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Here you would typically send the data to your backend
-    console.log('Booking form submitted:', formData);
-    
-    // Show success message
-    setIsSubmitted(true);
-    
-    // Reset form after submission
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: services[0]?.id || '',
-      date: '',
-      time: '',
-      notes: ''
-    });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+  
+    try {
+      const response = await fetch('http://localhost:3001/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert('Agendamento enviado com sucesso!');
+        setIsSubmitted(true);
+  
+        // Resetar o formulário
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: services[0]?.id || '',
+          date: '',
+          time: '',
+          notes: ''
+        });
+  
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        alert('Erro ao enviar. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro no envio:', error);
+      alert('Erro ao conectar com o servidor.');
+    }
   };
-
+  
   return (
     <section id="booking" className="py-24 bg-black relative">
       {/* Background pattern */}
