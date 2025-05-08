@@ -57,7 +57,7 @@ const Services: React.FC = () => {
             className="inline-flex items-center bg-amber-500 text-black px-8 py-4 rounded-md font-semibold hover:bg-amber-600 transition-colors duration-300"
           >
             <Scissors className="mr-2 h-5 w-5" />
-            <span>Book Your Service</span>
+            <span>Reserve seu serviço</span>
           </a>
         </div>
       </div>

@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2 z-50">
             <Scissors className="h-8 w-8 text-amber-500" />
-            <span className="text-2xl font-bold text-white">BarbeariaNovoEstilo</span>
+            <span className="text-2xl font-bold text-white">Barbearia Novo Estilo</span>
           </div>
 
           {/* Desktop Navigation */}

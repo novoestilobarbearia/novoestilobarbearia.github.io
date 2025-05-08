@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
           {/* Map */}
           <div className="h-[400px] rounded-lg overflow-hidden relative flex items-center justify-center bg-zinc-800">
             <img 
-              src="https://images.pexels.com/photos/1532771/pexels-photo-1532771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+              src="https://a-static.mlcdn.com.br/800x560/papel-de-parede-3d-barbearia-barber-shop-logo-35m-brb38-voce-decora/oliststore/mglpqicj0g6fzri7/481e73d366aff1fe953a0a112ce70d05.jpeg" 
               alt="Map location"
               className="w-full h-full object-cover opacity-40"
             />
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center text-amber-500 hover:text-amber-400 transition-colors duration-300"
               >
-                <span className="font-medium">Get Directions</span>
+                <span className="font-medium">Obter direções</span>
                 <svg className="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>

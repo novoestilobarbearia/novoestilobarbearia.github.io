@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Scissors className="h-8 w-8 text-amber-500" />
-              <span className="text-2xl font-bold">BarbeariaNovoEstilo</span>
+              <span className="text-2xl font-bold">Barbearia Novo Estilo</span>
             </div>
             <p className="text-gray-400 mb-6">
             Barbearia de primeira linha que oferece serviços  excepcionais com atenção aos detalhes e experiência premium.
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-zinc-800 text-center text-gray-500">
-          <p>&copy; {currentYear} BarbeariaNovoEstilo. Todos os direitos resevados.</p>
+          <p>&copy; {currentYear} Barbearia Novo Estilo. Todos os direitos resevados.</p>
           <p className="mt-2 text-sm">Projetado com precisão e trabalhado com excelência.</p>
         </div>
       </div>

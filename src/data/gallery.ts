@@ -28,7 +28,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "6",
-    src: "https://images.pexels.com/photos/3998443/pexels-photo-3998443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    src: "https://st4allthings4p4ci.blob.core.windows.net/allthingshair/allthingshair/wp-content/uploads/sites/2/2017/12/18220109/corte-ondulado-moicano-low-fade.jpg",
     alt: "Professional barber at work"
   }
 ];
