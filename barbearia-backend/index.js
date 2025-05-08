@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const nodemailer = require('nodemailer');
 const twilio = require('twilio');
@@ -59,3 +61,11 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+app.use(cors({
+    origin: [
+      'http://localhost:5173',
+      'https://novoestilobarbearia-github-io.vercel.app'
+    ]
+  }));
+
