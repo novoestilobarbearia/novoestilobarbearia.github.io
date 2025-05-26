@@ -6,7 +6,6 @@ require('dotenv').config();
 
 const app = express();
 
-// Configuração do CORS
 app.use(cors({
   origin: [
     'http://localhost:5173',
@@ -16,7 +15,6 @@ app.use(cors({
 
 app.use(express.json());
 
-// Configuração do OAuth2 do Gmail
 const oAuth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
   process.env.CLIENT_SECRET,
@@ -25,7 +23,6 @@ const oAuth2Client = new google.auth.OAuth2(
 
 oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
-// Rota de envio
 app.post('/api/send', async (req, res) => {
   const { name, email, phone, service, date, time, notes } = req.body;
 
@@ -38,13 +35,11 @@ Novo agendamento:
 📅 Data: ${date}
 ⏰ Horário: ${time}
 📝 Observações: ${notes || 'Nenhuma'}
-`;
+  `;
 
   try {
-    // Obter access token
     const accessToken = await oAuth2Client.getAccessToken();
 
-    // Configurar transporte
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -57,7 +52,6 @@ Novo agendamento:
       },
     });
 
-    // Enviar email
     await transporter.sendMail({
       from: `"Barbearia Novo Estilo" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
@@ -72,7 +66,6 @@ Novo agendamento:
   }
 });
 
-// Iniciar servidor
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
